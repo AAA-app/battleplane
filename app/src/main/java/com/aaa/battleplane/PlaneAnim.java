@@ -19,6 +19,7 @@ import java.util.Random;
 
 import android.os.Handler;
 
+import static com.aaa.battleplane.Bullet.*;
 
 
 public class PlaneAnim extends View {
@@ -55,7 +56,7 @@ public class PlaneAnim extends View {
         super(context);
         this.context = context;
         handler = new Handler();
-        background = BitmapFactory.decodeResource(getResources(), R.drawable.background);
+        background = BitmapFactory.decodeResource(getResources(), R.drawable.bg);
         plane[0] = BitmapFactory.decodeResource(getResources(), R.drawable.plane_1);
         plane[1] = BitmapFactory.decodeResource(getResources(), R.drawable.plane_2);
         plane[2] = BitmapFactory.decodeResource(getResources(), R.drawable.plane_3);
@@ -71,7 +72,7 @@ public class PlaneAnim extends View {
         plane[12] = BitmapFactory.decodeResource(getResources(), R.drawable.plane_13);
         plane[13] = BitmapFactory.decodeResource(getResources(), R.drawable.plane_14);
         plane[14] = BitmapFactory.decodeResource(getResources(), R.drawable.plane_15);
-        tank = BitmapFactory.decodeResource(getResources(), R.drawable.tank);
+        tank = BitmapFactory.decodeResource(getResources(), R.drawable.rocket);
 
         random = new Random();
 
@@ -82,7 +83,7 @@ public class PlaneAnim extends View {
         dWidth = size.x;
         dHeight = size.y;
         planeX = dWidth + random.nextInt(200);
-        planeY = random.nextInt(100);
+        planeY = random.nextInt(1000);
         dest = new Rect(0, 0, dWidth, dHeight);
 
         soundPool = new SoundPool(3, AudioManager.STREAM_MUSIC, 0);
@@ -113,14 +114,14 @@ public class PlaneAnim extends View {
         tankWidth = tank.getWidth();
         tankHeight = tank.getHeight();
         if (planeX < -planeWidth) {
-            planeX = dWidth + random.nextInt(200);
-            planeY = random.nextInt(100);
+            planeX = dWidth + random.nextInt(300);
+            planeY = random.nextInt(1000);
             planeVelocity = 5 + random.nextInt(16);
         }
         for (int i = 0; i < bullets.size(); i++) {
-            if (bullets.get(i).bulletY > -Bullet.getBulletHeight()) {
+            if (bullets.get(i).bulletY > -getBulletHeight()) {
                 bullets.get(i).bulletY -= bullets.get(i).bulletVelocity;
-                canvas.drawBitmap(bullets.get(i).bullet, bullets.get(i).bulletX, bullets.get(i).bulletY, null);
+                canvas.drawBitmap(bullet, bullets.get(i).bulletX, bullets.get(i).bulletY, null);
                 if ((bullets.get(i).bulletX >= planeX) && (bullets.get(i).bulletX <= planeX + planeWidth) &&
                         (bullets.get(i).bulletY >=planeY) && (bullets.get(i).bulletY < planeY + planeHeight)) {
 
@@ -129,8 +130,8 @@ public class PlaneAnim extends View {
                     explosionX = planeX;
                     explosionY = planeY;
 
-                    planeX = dWidth + random.nextInt(200);
-                    planeY = random.nextInt(100);
+                    planeX = dWidth + random.nextInt(300);
+                    planeY = random.nextInt(1000);
                     planeVelocity = 5 + random.nextInt(16);
                     bullets.remove(i);
 

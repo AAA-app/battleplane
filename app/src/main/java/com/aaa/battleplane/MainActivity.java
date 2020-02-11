@@ -7,7 +7,6 @@ import android.os.Bundle;
 public class MainActivity extends AppCompatActivity {
 
     PlaneAnim planeAnim;
-    //
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -10,15 +10,15 @@ public class Explosion {  // crashing to Plane
 
 
     public Explosion(Context context) {
-        explosion[0] = BitmapFactory.decodeResource(context.getResources(), R.drawable.explosion0);
-        explosion[1] = BitmapFactory.decodeResource(context.getResources(), R.drawable.explosion1);
-        explosion[2] = BitmapFactory.decodeResource(context.getResources(), R.drawable.explosion2);
-        explosion[3] = BitmapFactory.decodeResource(context.getResources(), R.drawable.explosion3);
-        explosion[4] = BitmapFactory.decodeResource(context.getResources(), R.drawable.explosion4);
-        explosion[5] = BitmapFactory.decodeResource(context.getResources(), R.drawable.explosion5);
-        explosion[6] = BitmapFactory.decodeResource(context.getResources(), R.drawable.explosion6);
-        explosion[7] = BitmapFactory.decodeResource(context.getResources(), R.drawable.explosion7);
-        explosion[8] = BitmapFactory.decodeResource(context.getResources(), R.drawable.explosion8);
+        explosion[0] = BitmapFactory.decodeResource(context.getResources(), R.drawable.missile_explosion00);
+        explosion[1] = BitmapFactory.decodeResource(context.getResources(), R.drawable.missile_explosion11);
+        explosion[2] = BitmapFactory.decodeResource(context.getResources(), R.drawable.missile_explosion22);
+        explosion[3] = BitmapFactory.decodeResource(context.getResources(), R.drawable.missile_explosion33);
+        explosion[4] = BitmapFactory.decodeResource(context.getResources(), R.drawable.missile_explosion44);
+        explosion[5] = BitmapFactory.decodeResource(context.getResources(), R.drawable.missile_explosion55);
+        explosion[6] = BitmapFactory.decodeResource(context.getResources(), R.drawable.missile_explosion66);
+        explosion[7] = BitmapFactory.decodeResource(context.getResources(), R.drawable.missile_explosion77);
+        explosion[8] = BitmapFactory.decodeResource(context.getResources(), R.drawable.missile_explosion88);
     }
 
     public Bitmap getExplosion(int explosionFrame) {
